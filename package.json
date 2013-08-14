@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha -R spec"
   },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/tmcw/sexagesimal.git"
+  },
   "keywords": [
     "coordinates",
     "sexagesimal"

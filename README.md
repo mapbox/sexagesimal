@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tmcw/sexagesimal.png)](https://travis-ci.org/tmcw/sexagesimal)
+
 ## sexagesimal
 
 Parses [sexagesimal coordinates](http://en.wikipedia.org/wiki/Sexagesimal)
