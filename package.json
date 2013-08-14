@@ -1,14 +1,14 @@
 {
   "name": "sexagesimal",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "parse coordinates in sexagesimal form",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/tmcw/sexagesimal.git"
+    "type": "git",
+    "url": "https://github.com/tmcw/sexagesimal.git"
   },
   "keywords": [
     "coordinates",
