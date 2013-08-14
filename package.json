@@ -1,0 +1,19 @@
+{
+  "name": "sexagesimal",
+  "version": "0.0.0",
+  "description": "parse coordinates in sexagesimal form",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "keywords": [
+    "coordinates",
+    "sexagesimal"
+  ],
+  "author": "Tom MacWright",
+  "license": "BSD",
+  "devDependencies": {
+    "expect.js": "~0.2.0",
+    "mocha": "~1.12.0"
+  }
+}
