@@ -7,5 +7,5 @@ module.exports = function(x, dims) {
     else return (((m[1]) ? parseFloat(m[1]) : 0) +
         ((m[2] ? parseFloat(m[2]) / 60 : 0)) +
         ((m[3] ? parseFloat(m[3]) / 3600 : 0))) *
-        ((m[4] && m[4] === 'S' || m[4] === 'E') ? -1 : 1);
+        ((m[4] && m[4] === 'S' || m[4] === 'W') ? -1 : 1);
 };

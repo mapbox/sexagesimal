@@ -8,15 +8,15 @@ describe('sexagesimal', function() {
         expect(sexagesimal('66.5° N')).to.eql(66.5);
         expect(sexagesimal('66.2525° N')).to.eql(66.2525);
         expect(sexagesimal('66° S')).to.eql(-66);
-        expect(sexagesimal('16° W')).to.eql(16);
-        expect(sexagesimal('26° E')).to.eql(-26);
+        expect(sexagesimal('16° W')).to.eql(-16);
+        expect(sexagesimal('26° E')).to.eql(26);
     });
 
     it('minutes', function() {
         expect(sexagesimal('66° 30\' N')).to.eql(66.5);
-        expect(sexagesimal('66° 30\' E')).to.eql(-66.5);
+        expect(sexagesimal('66° 30\' E')).to.eql(66.5);
         expect(sexagesimal('66° 30\' S')).to.eql(-66.5);
-        expect(sexagesimal('66° 30\' W')).to.eql(66.5);
+        expect(sexagesimal('66° 30\' W')).to.eql(-66.5);
         expect(sexagesimal('0° 30\' N')).to.eql(0.5);
     });
 
@@ -24,7 +24,7 @@ describe('sexagesimal', function() {
         expect(sexagesimal('66° 30′ 360″ N')).to.eql(66.6);
         expect(sexagesimal('66° 30′ 720″ S')).to.eql(-66.7);
         expect(sexagesimal('66° 30′ 720" S')).to.eql(-66.7);
-        expect(sexagesimal('66° 30′ 720" E')).to.eql(-66.7);
-        expect(sexagesimal('66° 30′ 720" W')).to.eql(66.7);
+        expect(sexagesimal('66° 30′ 720" E')).to.eql(66.7);
+        expect(sexagesimal('66° 30′ 720" W')).to.eql(-66.7);
     });
 });
