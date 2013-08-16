@@ -1,5 +1,6 @@
 module.exports = function(x, dims) {
     if (!dims) dims = 'NSEW';
+    if (typeof x !== 'string') return null;
     var r = /^([0-9.]+)°? *(?:([0-9.]+)['’′‘] *)?(?:([0-9.]+)(?:''|"|”|″) *)?([NSEW])?/,
         m = x.match(r);
     if (!m) return null;
