@@ -1,8 +1,19 @@
-[![Build Status](https://travis-ci.org/tmcw/sexagesimal.png)](https://travis-ci.org/tmcw/sexagesimal)
+[![Build Status](https://travis-ci.org/mapbox/sexagesimal.png)](https://travis-ci.org/mapbox/sexagesimal)
 
 ## sexagesimal
 
-Parses [sexagesimal coordinates](http://en.wikipedia.org/wiki/Sexagesimal)
+Parses [sexagesimal coordinates](http://en.wikipedia.org/wiki/Sexagesimal) into
+decimal coordinates.
+
+### usage
+
+with npm (and/or) browserify
+
+    npm install sexagesimal
+
+otherwise
+
+    curl https://raw.github.com/mapbox/sexagesimal/master/sexagesimal.js
 
 ### example
 
