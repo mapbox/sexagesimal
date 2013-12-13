@@ -23,10 +23,21 @@ sexagesimal('66° 30′ 720″ S') // -66.7
 sexagesimal('66° 30′ 720" S') // -66.7
 sexagesimal('66° 30′ 720" E') // 66.7
 sexagesimal('66° 30′ 720" W') // -66.7
+sexagesimal.pair('66N 32W') // [66, -32]
 ```
 
 ### api
 
 ```js
-sexagesimal(str) // returns a number or null
+sexagesimal(str, dims) // returns a number or null
 ```
+
+`dims` is by default `NSEW` but can be other ordinal directions expressed
+as a string of characters.
+
+```js
+sexagesimal.pair(str, dims) // returns [lat, lon] or null
+```
+
+`dims` is by default `NSEW` but can be other ordinal directions expressed
+as a string of characters.

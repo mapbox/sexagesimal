@@ -13,6 +13,13 @@ describe('sexagesimal', function() {
             expect(sexagesimal('26° E')).to.eql(26);
         });
 
+        it('decimals', function() {
+            expect(sexagesimal('26')).to.eql(26);
+            expect(sexagesimal('26.5')).to.eql(26.5);
+            expect(sexagesimal('26.52')).to.eql(26.52);
+            expect(sexagesimal('-26.52')).to.eql(-26.52);
+        });
+
         it('minutes', function() {
             expect(sexagesimal('66° 30\' N')).to.eql(66.5);
             expect(sexagesimal('66° 30\' E')).to.eql(66.5);
@@ -27,6 +34,16 @@ describe('sexagesimal', function() {
             expect(sexagesimal('66° 30′ 720" S')).to.eql(-66.7);
             expect(sexagesimal('66° 30′ 720" E')).to.eql(66.7);
             expect(sexagesimal('66° 30′ 720" W')).to.eql(-66.7);
+        });
+    });
+
+    describe('.pair', function() {
+        it('ordinals', function() {
+            expect(sexagesimal.pair('66N 32W')).to.eql([66, -32]);
+            expect(sexagesimal.pair('66S 32W')).to.eql([-66, -32]);
+            expect(sexagesimal.pair('32W 66S')).to.eql([-66, -32]);
+            expect(sexagesimal.pair('32W, 66S')).to.eql([-66, -32]);
+            expect(sexagesimal.pair('66° 30′ 360″ N, 66° 30′ 720" W')).to.eql([66.6, -66.7]);
         });
     });
 
