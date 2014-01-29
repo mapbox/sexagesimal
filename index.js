@@ -18,18 +18,21 @@ function search(x, dims, r) {
             ((m[3] ? parseFloat(m[3]) / 3600 : 0))) *
             ((m[4] && m[4] === 'S' || m[4] === 'W') ? -1 : 1),
         regex: r,
+        raw: m[0],
         dim: m[4]
     };
 }
 
 function pair(x, dims) {
+    x = x.trim();
     var one = search(x, dims);
     if (one.val === null) return null;
     var two = search(x, dims, one.regex);
-    if (one.val !== null && two.val !== null) {
-        if (one.dim) return swapdim(one.val, two.val, one.dim);
-        else return [one.val, two.val];
-    }
+    if (two.val === null) return null;
+    // null if one/two are not contiguous.
+    if (one.raw + two.raw !== x) return null;
+    if (one.dim) return swapdim(one.val, two.val, one.dim);
+    else return [one.val, two.val];
 }
 
 function swapdim(a, b, dim) {

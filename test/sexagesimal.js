@@ -44,6 +44,13 @@ describe('sexagesimal', function() {
             expect(sexagesimal.pair('32W 66S')).to.eql([-66, -32]);
             expect(sexagesimal.pair('32W, 66S')).to.eql([-66, -32]);
             expect(sexagesimal.pair('66° 30′ 360″ N, 66° 30′ 720" W')).to.eql([66.6, -66.7]);
+            expect(sexagesimal.pair('32W, 66S ')).to.eql([-66, -32]);
+        });
+        it('returns null for non sexagesimal strings', function() {
+            expect(sexagesimal.pair('32W, 66S cruft')).to.eql(null);
+            expect(sexagesimal.pair('500 johnson st 11310')).to.eql(null);
+            expect(sexagesimal.pair('500 5th')).to.eql(null);
+            expect(sexagesimal.pair('500 5th st nw')).to.eql(null);
         });
     });
 
