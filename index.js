@@ -1,8 +1,33 @@
 module.exports = element;
 module.exports.pair = pair;
+module.exports.format = format;
+module.exports.formatPair = formatPair;
 
 function element(x, dims) {
     return search(x, dims).val;
+}
+
+function formatPair(x) {
+    return format(x.lat, 'lat') + ' ' + format(x.lon, 'lon');
+}
+
+// Is 0 North or South?
+function format(x, dim) {
+    var dirs = {
+            lat: ['N', 'S'],
+            lon: ['E', 'W']
+        }[dim] || '',
+        dir = dirs[x >= 0 ? 0 : 1],
+        abs = Math.abs(x),
+        whole = Math.floor(abs),
+        fraction = abs - whole,
+        fractionMinutes = fraction * 60,
+        minutes = Math.floor(fractionMinutes),
+        seconds = Math.floor((fractionMinutes - minutes) * 3600);
+
+    return whole + '° ' +
+        (minutes ? minutes + "' " : '') +
+        (seconds ? seconds + '" ' : '') + dir;
 }
 
 function search(x, dims, r) {

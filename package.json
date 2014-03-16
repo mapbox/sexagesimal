@@ -4,7 +4,7 @@
   "description": "parse coordinates in sexagesimal form",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec",
+    "test": "tape test/*.js",
     "make": "browserify -s sexagesimal index.js > sexagesimal.js"
   },
   "repository": {

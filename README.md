@@ -41,3 +41,16 @@ sexagesimal.pair(str, dims) // returns [lat, lon] or null
 
 `dims` is by default `NSEW` but can be other ordinal directions expressed
 as a string of characters.
+
+```js
+sexagesimal.format(float, dimension) // returns a formatted string
+```
+
+Format a single sexagesimal number. `dimension` must be a string, either
+`"lat"` or `"lon"`.
+
+```js
+sexagesimal.formatPair({ lat: float, lon: float }) // returns a formatted string
+```
+
+Format a sexagesimal coordinate.
