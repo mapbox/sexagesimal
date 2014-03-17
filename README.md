@@ -2,7 +2,7 @@
 
 ## sexagesimal
 
-Parses [sexagesimal coordinates](http://en.wikipedia.org/wiki/Sexagesimal) into
+Convert between [sexagesimal coordinates](http://en.wikipedia.org/wiki/Sexagesimal) and
 decimal coordinates.
 
 ### usage
