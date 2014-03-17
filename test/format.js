@@ -9,6 +9,7 @@ test('format', function(t) {
     t.equal(sexagesimal.format(10.5, 'lon'), '10° 30\' E');
     t.equal(sexagesimal.format(10.51, 'lon'), '10° 30\' 35" E');
     t.equal(sexagesimal.format(10.51, 'lat'), '10° 30\' 35" N');
+    t.end();
 });
 
 test('format & parse', function(t) {
