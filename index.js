@@ -23,7 +23,7 @@ function format(x, dim) {
         fraction = abs - whole,
         fractionMinutes = fraction * 60,
         minutes = Math.floor(fractionMinutes),
-        seconds = Math.floor((fractionMinutes - minutes) * 3600);
+        seconds = Math.floor((fractionMinutes - minutes) * 60);
 
     return whole + '° ' +
         (minutes ? minutes + "' " : '') +
