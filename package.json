@@ -7,6 +7,9 @@
     "test": "tape test/*.js",
     "make": "browserify -s sexagesimal index.js > sexagesimal.js"
   },
+  "bin": {
+    "sexagesimal": "bin/sexagesimal"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tmcw/sexagesimal.git"

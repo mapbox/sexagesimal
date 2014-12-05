@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+var sexagesimal = require("sexagesimal");
+
+
+function usage() {
+  console.log('Usage: sexagesimal [degree] [minute] [second] [direction]\n');
+  console.log('Examples:');
+  console.log('sexagesimal 66 30 360 N');
+  console.log('sexagesimal 66° 30′ 360″ N');
+}
+
+
+process.argv.shift();
+process.argv.shift();
+
+if (process.argv.length !== 4) {
+  usage();
+  process.exit(1);
+}
+
+var degreeSymbol = "°";
+var minuteSymbol = "′";
+var secondSymbol = "″";
+
+var degree = process.argv.shift().replace(degreeSymbol, "");
+var minute = process.argv.shift().replace(minuteSymbol, "");
+var second = process.argv.shift().replace(secondSymbol, "");
+var direction = process.argv.shift();
+
+var input = degree + degreeSymbol + " ";
+input += minute + minuteSymbol + " ";
+input += second + secondSymbol + " ";
+input += direction;
+
+console.log(sexagesimal(input));
