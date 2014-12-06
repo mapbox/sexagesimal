@@ -1,3 +1,7 @@
+## 0.4.0
+
+* Add `sexagesimal` binary.
+
 ## 0.3.0
 
 * Added `.format(float, str) -> str` and `.formatPair({ lat: float, lon: float }) -> str` methods
