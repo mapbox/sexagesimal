@@ -2,6 +2,7 @@ module.exports = element;
 module.exports.pair = pair;
 module.exports.format = format;
 module.exports.formatPair = formatPair;
+module.exports.coordToDMS = coordToDMS;
 
 function element(x, dims) {
     return search(x, dims).val;
@@ -13,6 +14,13 @@ function formatPair(x) {
 
 // Is 0 North or South?
 function format(x, dim) {
+    var dms = coordToDMS(x,dim);
+    return dms.whole + '° ' +
+        (dms.minutes ? dms.minutes + "' " : '') +
+        (dms.seconds ? dms.seconds + '" ' : '') + dms.dir;
+}
+
+function coordToDMS(x,dim) {
     var dirs = {
             lat: ['N', 'S'],
             lon: ['E', 'W']
@@ -25,9 +33,7 @@ function format(x, dim) {
         minutes = Math.floor(fractionMinutes),
         seconds = Math.floor((fractionMinutes - minutes) * 60);
 
-    return whole + '° ' +
-        (minutes ? minutes + "' " : '') +
-        (seconds ? seconds + '" ' : '') + dir;
+    return {'d':whole,'m': minutes, 's':seconds,'dir':dir};
 }
 
 function search(x, dims, r) {
