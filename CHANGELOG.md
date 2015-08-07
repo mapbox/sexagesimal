@@ -1,3 +1,7 @@
+## 0.5.0
+
+* Exposes `coordToDMS` method
+
 ## 0.4.0
 
 * Add `sexagesimal` binary.
