@@ -10,10 +10,6 @@
   "bin": {
     "sexagesimal": "bin/sexagesimal"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tmcw/sexagesimal.git"
-  },
   "keywords": [
     "coordinates",
     "sexagesimal"
@@ -23,5 +19,9 @@
   "devDependencies": {
     "browserify": "~2.31.0",
     "tap": "^1.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mapbox/sexagesimal.git"
   }
 }
