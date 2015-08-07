@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mapbox/sexagesimal.png)](https://travis-ci.org/mapbox/sexagesimal)
+[![Build Status](https://travis-ci.org/mapbox/sexagesimal.svg)](https://travis-ci.org/mapbox/sexagesimal)
 
 ## sexagesimal
 
