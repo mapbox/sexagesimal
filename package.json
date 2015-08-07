@@ -1,6 +1,6 @@
 {
   "name": "sexagesimal",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "parse coordinates in sexagesimal form",
   "main": "index.js",
   "scripts": {
