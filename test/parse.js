@@ -1,5 +1,5 @@
 var sexagesimal = require('../'),
-    test = require('tape').test;
+    test = require('tap').test;
 
 test('basic directions with degrees', function(t) {
     t.deepEqual(sexagesimal('0° N'), 0);

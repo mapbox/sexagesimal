@@ -1,5 +1,5 @@
 var sexagesimal = require('../'),
-    test = require('tape').test;
+    test = require('tap').test;
 
 test('format', function(t) {
     t.equal(sexagesimal.format(10, 'lat'), '10° N');

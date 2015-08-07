@@ -16,7 +16,7 @@ function formatPair(x) {
 function format(x, dim) {
     var dms = coordToDMS(x,dim);
     return dms.whole + '° ' +
-        (dms.minutes ? dms.minutes + "' " : '') +
+        (dms.minutes ? dms.minutes + '\' ' : '') +
         (dms.seconds ? dms.seconds + '" ' : '') + dms.dir;
 }
 
@@ -33,7 +33,12 @@ function coordToDMS(x,dim) {
         minutes = Math.floor(fractionMinutes),
         seconds = Math.floor((fractionMinutes - minutes) * 60);
 
-    return {'d':whole,'m': minutes, 's':seconds,'dir':dir};
+    return {
+      whole: whole,
+      minutes: minutes,
+      seconds: seconds,
+      dir: dir
+    };
 }
 
 function search(x, dims, r) {
@@ -62,11 +67,14 @@ function pair(x, dims) {
     if (two.val === null) return null;
     // null if one/two are not contiguous.
     if (one.raw + two.raw !== x) return null;
-    if (one.dim) return swapdim(one.val, two.val, one.dim);
-    else return [one.val, two.val];
+    if (one.dim) {
+      return swapdim(one.val, two.val, one.dim);
+    } else {
+      return [one.val, two.val];
+    }
 }
 
 function swapdim(a, b, dim) {
-    if (dim == 'N' || dim == 'S') return [a, b];
-    if (dim == 'W' || dim == 'E') return [b, a];
+    if (dim === 'N' || dim === 'S') return [a, b];
+    if (dim === 'W' || dim === 'E') return [b, a];
 }
