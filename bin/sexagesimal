@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var sexagesimal = require("sexagesimal");
+var sexagesimal = require("@mapbox/sexagesimal");
 
 
 function usage() {
