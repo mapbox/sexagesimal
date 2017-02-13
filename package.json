@@ -14,11 +14,16 @@
     "sexagesimal": "bin/sexagesimal"
   },
   "devDependencies": {
-    "tap": "^10.1.0",
     "browserify": "~14.0.0"
+    "greenkeeper-postpublish": "^1.0.1",
+    "tap": "^10.1.0",
+  },
+  "engines": {
+    "node": ">=4.0.0"
   },
   "scripts": {
     "test": "tap --coverage test/*.js",
-    "make": "browserify -s sexagesimal index.js > sexagesimal.js"
+    "make": "browserify -s sexagesimal index.js > sexagesimal.js",
+    "postpublish": "greenkeeper-postpublish"
   }
 }
