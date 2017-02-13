@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/%40mapbox%2Fsexagesimal.svg)](https://badge.fury.io/js/%40mapbox%2Fsexagesimal)
 [![Build Status](https://travis-ci.org/mapbox/sexagesimal.svg)](https://travis-ci.org/mapbox/sexagesimal)
 
 ## sexagesimal
@@ -9,7 +10,7 @@ decimal coordinates.
 
 with npm (and/or) browserify
 
-    npm install sexagesimal
+    npm install @mapbox/sexagesimal
 
 otherwise
 

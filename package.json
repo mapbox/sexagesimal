@@ -1,27 +1,24 @@
 {
+  "name": "@mapbox/sexagesimal",
+  "description": "parse coordinates in sexagesimal form",
+  "version": "0.5.0",
+  "main": "index.js",
+  "license": "BSD-2-Clause",
+  "author": "Tom MacWright",
+  "repository": "mapbox/sexagesimal",
+  "keywords": [
+    "coordinates",
+    "sexagesimal"
+  ],
   "bin": {
     "sexagesimal": "bin/sexagesimal"
-  }, 
-  "name": "sexagesimal", 
-  "license": "BSD-2-Clause", 
-  "author": "Tom MacWright", 
-  "repository": {
-    "url": "git@github.com:mapbox/sexagesimal.git", 
-    "type": "git"
-  }, 
-  "version": "0.5.0", 
-  "scripts": {
-    "test": "tap --coverage test/*.js", 
-    "make": "browserify -s sexagesimal index.js > sexagesimal.js"
-  }, 
-  "keywords": [
-    "coordinates", 
-    "sexagesimal"
-  ], 
+  },
   "devDependencies": {
-    "tap": "^1.3.2", 
+    "tap": "^1.3.2",
     "browserify": "~2.31.0"
-  }, 
-  "main": "index.js", 
-  "description": "parse coordinates in sexagesimal form"
+  },
+  "scripts": {
+    "test": "tap --coverage test/*.js",
+    "make": "browserify -s sexagesimal index.js > sexagesimal.js"
+  }
 }
