@@ -46,7 +46,6 @@ function search(x, dims, r) {
     if (typeof x !== 'string') return { val: null, regex: r };
     r = r || /[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)°?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/gi;
     var m = r.exec(x);
-    console.log(m);
     if (!m) return { val: null, regex: r };
     else {
         var deg = ((m[2]) ? parseFloat(m[2]) : 0);
