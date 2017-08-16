@@ -44,18 +44,22 @@ function coordToDMS(x,dim) {
 function search(x, dims, r) {
     if (!dims) dims = 'NSEW';
     if (typeof x !== 'string') return { val: null, regex: r };
-    r = r || /[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)°? *(?:([0-9.]+)['’′‘] *)?(?:([0-9.]+)(?:''|"|”|″) *)?([NSEW])?/gi;
+    r = r || /[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)°?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/gi;
     var m = r.exec(x);
+    console.log(m);
     if (!m) return { val: null, regex: r };
-    else if (m[4] && dims.indexOf(m[4]) === -1) return { val: null, regex: r };
     else {
         var deg = ((m[2]) ? parseFloat(m[2]) : 0);
         var min = ((m[3]) ? parseFloat(m[3]) / 60 : 0);
         var sec = ((m[4]) ? parseFloat(m[4]) / 3600 : 0);
-        var dim = ((m[5] && m[5] === 'S' || m[5] === 'W') ? -1 : 1);
+        var dim = '';
+        if (dims.indexOf(m[5]) !== -1) {
+            dim = ((m[5] && m[5] === 'S' || m[5] === 'W') ? -1 : 1);
+        }
         if (dims.indexOf(m[1]) !== -1) {
             dim = ((m[1] && m[1] === 'S' || m[1] === 'W') ? -1 : 1);
         }
+        if (dim === '') return { val: null, regex: r };
 
         return {
         val: ((deg +
