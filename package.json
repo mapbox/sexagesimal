@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "browserify": "~14.0.0",
-    "greenkeeper-postpublish": "^1.0.1",
     "tap": "^10.1.0"
   },
   "engines": {
