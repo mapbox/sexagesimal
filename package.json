@@ -22,7 +22,6 @@
   },
   "scripts": {
     "test": "tap --coverage test/*.js",
-    "make": "browserify -s sexagesimal index.js > sexagesimal.js",
-    "postpublish": "greenkeeper-postpublish"
+    "make": "browserify -s sexagesimal index.js > sexagesimal.js"
   }
 }
