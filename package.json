@@ -1,7 +1,7 @@
 {
   "name": "@mapbox/sexagesimal",
   "description": "parse coordinates in sexagesimal form",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "license": "BSD-2-Clause",
   "author": "Tom MacWright",

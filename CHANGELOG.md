@@ -1,5 +1,12 @@
 :warning: = breaking change
 
+## 1.1.0
+##### 2017-Aug-22
+* Handle strings where direction appears before the coordinates ([#7], thanks [@sabas])
+
+[#7]: https://github.com/mapbox/sexagesimal/pull/7
+[@sabas]: https://github.com/sabas
+
 ## 1.0.0
 ##### 2017-Feb-13
 * Bump all dependencies
@@ -8,11 +15,17 @@
 
 ## 0.5.0
 ##### 2015-Aug-07
-* Exposes `coordToDMS` method
+* Exposes `coordToDMS` method ([#5], thanks [@sabas])
+
+[#5]: https://github.com/mapbox/sexagesimal/pull/5
+[@sabas]: https://github.com/sabas
 
 ## 0.4.0
 ##### 2014-Dec-06
-* Add `sexagesimal` binary.
+* Add `sexagesimal` binary. ([#4], thanks [@kapadia])
+
+[#4]: https://github.com/mapbox/sexagesimal/pull/4
+[@kapadia]: https://github.com/kapadia
 
 ## 0.3.0
 ##### 2014-Mar-17
@@ -22,4 +35,7 @@
 ## 0.2.1
 ##### 2014-Jan-29
 * No longer tolerates junk at the end of coordinate strings, which has led
-  to false-positives like `10 12th Street`.
+  to false-positives like `10 12th Street`. ([#2], thanks [@yhahn])
+
+[#2]: https://github.com/mapbox/sexagesimal/pull/2
+[@yhahn]: https://github.com/yhahn
