@@ -4,6 +4,8 @@ var sexagesimal = require('../'),
 test('basic directions with degrees', function(t) {
     t.deepEqual(sexagesimal('0° N'), 0);
     t.deepEqual(sexagesimal('66° N'), 66);
+    t.deepEqual(sexagesimal('66º N'), 66);
+    t.deepEqual(sexagesimal('66˚ N'), 66);
     t.deepEqual(sexagesimal('66.5° N'), 66.5);
     t.deepEqual(sexagesimal('66.2525° N'), 66.2525);
     t.deepEqual(sexagesimal('66° S'), -66);

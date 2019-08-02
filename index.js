@@ -45,7 +45,7 @@ function search(x, dims, r) {
   if (!dims) dims = 'NSEW';
   if (typeof x !== 'string') return { val: null, regex: r };
 
-  r = r || /[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)°?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/gi;
+  r = r || /[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)[°º˚]?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/gi;
 
   var m = r.exec(x);
   if (!m) return { val: null, regex: r };
