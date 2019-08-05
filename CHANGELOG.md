@@ -1,5 +1,15 @@
 :warning: = breaking change
 
+## 1.2.0
+##### 2019-Aug-05
+* Handle strings with preceding direction and no comma ([#8])
+* Handle more variations of degree symbols ([#9], thanks [@quincylvania])
+* Require Node 8+
+
+[#8]: https://github.com/mapbox/sexagesimal/pull/8
+[#9]: https://github.com/mapbox/sexagesimal/pull/9
+[@quincylvania]: https://github.com/quincylvania
+
 ## 1.1.0
 ##### 2017-Aug-22
 * Handle strings where direction appears before the coordinates ([#7], thanks [@sabas])
@@ -10,7 +20,7 @@
 ## 1.0.0
 ##### 2017-Feb-13
 * Bump all dependencies
-* Require Node 4 or later
+* Require Node 4+
 * :warning: sexagesimal is now a scoped package under @mapbox namespace
 
 ## 0.5.0
