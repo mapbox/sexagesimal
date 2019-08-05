@@ -4,34 +4,36 @@ module.exports.format = format;
 module.exports.formatPair = formatPair;
 module.exports.coordToDMS = coordToDMS;
 
-function element(x, dims) {
-  return search(x, dims).val;
+
+function element(input, dims) {
+  var result = search(input, dims);
+  return (result === null) ? null : result.val;
 }
 
-function formatPair(x) {
-  return format(x.lat, 'lat') + ' ' + format(x.lon, 'lon');
+
+function formatPair(input) {
+  return format(input.lat, 'lat') + ' ' + format(input.lon, 'lon');
 }
+
 
 // Is 0 North or South?
-function format(x, dim) {
-  var dms = coordToDMS(x,dim);
+function format(input, dim) {
+  var dms = coordToDMS(input, dim);
   return dms.whole + '° ' +
     (dms.minutes ? dms.minutes + '\' ' : '') +
     (dms.seconds ? dms.seconds + '" ' : '') + dms.dir;
 }
 
-function coordToDMS(x,dim) {
-  var dirs = {
-    lat: ['N', 'S'],
-    lon: ['E', 'W']
-  }[dim] || '',
-  dir = dirs[x >= 0 ? 0 : 1],
-    abs = Math.abs(x),
-    whole = Math.floor(abs),
-    fraction = abs - whole,
-    fractionMinutes = fraction * 60,
-    minutes = Math.floor(fractionMinutes),
-    seconds = Math.floor((fractionMinutes - minutes) * 60);
+
+function coordToDMS(input, dim) {
+  var dirs = { lat: ['N', 'S'], lon: ['E', 'W'] }[dim] || '';
+  var dir = dirs[input >= 0 ? 0 : 1];
+  var abs = Math.abs(input);
+  var whole = Math.floor(abs);
+  var fraction = abs - whole;
+  var fractionMinutes = fraction * 60;
+  var minutes = Math.floor(fractionMinutes);
+  var seconds = Math.floor((fractionMinutes - minutes) * 60);
 
   return {
     whole: whole,
@@ -41,43 +43,63 @@ function coordToDMS(x,dim) {
   };
 }
 
-function search(x, dims, r) {
+
+function search(input, dims) {
   if (!dims) dims = 'NSEW';
-  if (typeof x !== 'string') return { val: null, regex: r };
+  if (typeof input !== 'string') return null;
 
-  r = r || /[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)[°º˚]?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/gi;
+  input = input.toUpperCase();
+  var regex = /^[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)[°º˚]?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/;
 
-  var m = r.exec(x);
-  if (!m) return { val: null, regex: r };
+  var m = input.match(regex);
+  if (!m) return null;  // no match
 
-  var dim = m[1] || m[5];
-  if (dim && dims.indexOf(dim) === -1) return { val: null, regex: r };
+  var matched = m[0];
+
+  // extract dimension.. m[1] = leading, m[5] = trailing
+  var dim;
+  if (m[1] && m[5]) {                 // if matched both..
+    dim = m[1];                       // keep leading
+    matched = matched.slice(0, -1);   // remove trailing dimension from match
+  } else {
+    dim = m[1] || m[5];
+  }
+
+  // if unrecognized dimension
+  if (dim && dims.indexOf(dim) === -1) return null;
+
+  // extract DMS
+  var deg = m[2] ? parseFloat(m[2]) : 0;
+  var min = m[3] ? parseFloat(m[3]) / 60 : 0;
+  var sec = m[4] ? parseFloat(m[4]) / 3600 : 0;
+  var sign = (deg < 0) ? -1 : 1;
+  if (dim === 'S' || dim === 'W') sign *= -1;
 
   return {
-    val: (((m[2]) ? parseFloat(m[2]) : 0) +
-          ((m[3] ? parseFloat(m[3]) / 60 : 0)) +
-          ((m[4] ? parseFloat(m[4]) / 3600 : 0))) *
-          ((dim === 'S' || dim === 'W') ? -1 : 1),
-    regex: r,
-    raw: m[0],
-    dim: dim
+    val: (Math.abs(deg) + min + sec) * sign,
+    dim: dim,
+    matched: matched,
+    remain: input.slice(matched.length)
   };
 }
 
-function pair(x, dims) {
-  x = x.trim();
-  var one = search(x, dims);
-  if (one.val === null) return null;
-  var two = search(x, dims, one.regex);
-  if (two.val === null) return null;
-  // null if one/two are not contiguous.
-  if (one.raw + two.raw !== x) return null;
+
+function pair(input, dims) {
+  input = input.trim();
+  var one = search(input, dims);
+  if (!one) return null;
+
+  input = one.remain.trim();
+  var two = search(input, dims);
+  if (!two || two.remain) return null;
+
   if (one.dim) {
     return swapdim(one.val, two.val, one.dim);
   } else {
     return [one.val, two.val];
   }
 }
+
 
 function swapdim(a, b, dim) {
   if (dim === 'N' || dim === 'S') return [a, b];

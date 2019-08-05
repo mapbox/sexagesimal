@@ -21,7 +21,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "test": "tap --coverage test/*.js",
-    "make": "browserify -s sexagesimal index.js > sexagesimal.js"
+    "build": "browserify -s sexagesimal index.js > sexagesimal.js",
+    "test": "tap --coverage test/*.js"
   }
 }
