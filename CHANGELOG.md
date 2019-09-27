@@ -1,5 +1,9 @@
 :warning: = breaking change
 
+## 1.2.1
+##### 2019-Sep-27
+* Add support for format using "deg", such as found in some exif data [@counterbeing]
+
 ## 1.2.0
 ##### 2019-Aug-05
 * Handle strings with preceding direction and no comma ([#8])
