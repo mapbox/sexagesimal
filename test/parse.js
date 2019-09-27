@@ -13,6 +13,7 @@ test('basic directions with degrees', function(t) {
     t.deepEqual(sexagesimal('26° E'), 26);
     t.deepEqual(sexagesimal('N 66.5°'), 66.5);
     t.deepEqual(sexagesimal('W16°'), -16);
+    t.deepEqual(sexagesimal('66 deg N'), 66);
     t.end();
 });
 
@@ -30,6 +31,7 @@ test('minutes', function(t) {
     t.deepEqual(sexagesimal('66° 30\' S'), -66.5);
     t.deepEqual(sexagesimal('66° 30\' W'), -66.5);
     t.deepEqual(sexagesimal('0° 30\' N'), 0.5);
+    t.deepEqual(sexagesimal('66 deg 30\' N'), 66.5);
     t.end();
 });
 
@@ -39,6 +41,7 @@ test('seconds', function(t) {
     t.deepEqual(sexagesimal('66° 30′ 720" S'), -66.7);
     t.deepEqual(sexagesimal('66° 30′ 720" E'), 66.7);
     t.deepEqual(sexagesimal('66° 30′ 720" W'), -66.7);
+    t.deepEqual(sexagesimal('66 deg 30\' 720" N'), 66.7);
     t.end();
 });
 
