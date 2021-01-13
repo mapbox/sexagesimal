@@ -55,6 +55,7 @@ test('leading dimension, comma separator', function(t) {
 });
 
 test('returns null for non sexagesimal strings', function(t) {
+    t.deepEqual(sexagesimal.pair('|32, |66'), null);
     t.deepEqual(sexagesimal.pair('W32, S66 cruft'), null);
     t.deepEqual(sexagesimal.pair('cruft W32, S66'), null);
     t.deepEqual(sexagesimal.pair('cruft W32, S66 cruft'), null);
