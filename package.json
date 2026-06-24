@@ -1,7 +1,7 @@
 {
   "name": "@mapbox/sexagesimal",
   "description": "parse coordinates in sexagesimal form",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "index.js",
   "license": "BSD-2-Clause",
   "author": "Tom MacWright",
@@ -23,5 +23,8 @@
   "scripts": {
     "build": "browserify -s sexagesimal index.js > sexagesimal.js",
     "test": "tap --coverage test/*.js"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
