@@ -49,7 +49,7 @@ function search(input, dims) {
   if (typeof input !== 'string') return null;
 
   input = input.toUpperCase();
-  var regex = /^[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)[°º˚]?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/;
+  var regex = /^[\s\,]*([NSEW])?\s*([\-|\—|\―]?[0-9.]+)(?:[°º˚]|\sDEG)?\s*(?:([0-9.]+)['’′‘]\s*)?(?:([0-9.]+)(?:''|"|”|″)\s*)?([NSEW])?/;
 
   var m = input.match(regex);
   if (!m) return null;  // no match
